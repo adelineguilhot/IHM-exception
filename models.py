@@ -1,8 +1,9 @@
 import peewee
 import datetime
+import settings
 
 
-mysql_db = peewee.MySQLDatabase(host="10.1.0.131", user="equipe", password="Equipe26000.", database="fil_rouge")
+mysql_db = peewee.MySQLDatabase(host=settings.DB_HOST, user=settings.DB_USER, password=settings.DB_PASSWORD, database=settings.DB_DATABASE)
 
 
 class Base(peewee.Model):
@@ -21,6 +22,17 @@ class GameServer(Base):
     level = peewee.IntegerField()
     player_1_color = peewee.CharField()
     player_2_color = peewee.CharField()
+
+    def get_config(self, msg_ID):
+        reponse = {"Msg type": "CONFIG",
+                   "Msg ID": msg_ID,
+                   "Max player delay": self.max_player_delay,
+                   "Max coin blink delay": self.max_coin_blink_delay,
+                   "Victory blink delay": self.victory_blink_delay,
+                   "Level": self.level,
+                   "Player1 color": self.player_1_color,
+                   "Player2 color": self.player_2_color}
+        return reponse
 
     def __str__(self):
         return self.nom_serveur
