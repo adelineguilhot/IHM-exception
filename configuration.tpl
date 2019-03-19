@@ -1,3 +1,6 @@
+% include('header.tpl', title='Street GAMES')
+<body>
+
 <form action='/configuration' method='post'>
     adresse_ip :<input type="text" name="serveur">
     nom du serveur : <input type="text" name="nom">
@@ -20,3 +23,5 @@
     <input type="submit">
 
 </form>
+% include('footer.tpl')
+</body>
