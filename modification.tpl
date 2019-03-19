@@ -1,3 +1,4 @@
+% include('header.tpl', title='Street GAMES')
 <form action='' method='post'>
     <!--
         Fichier de modification de configuration d'un contrôleur de jeu.
@@ -46,3 +47,5 @@
    <input type="reset">
    <input type="submit">
 </form>
+
+% include('footer.tpl')

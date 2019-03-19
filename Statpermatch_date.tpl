@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>StatPerMatch</title>
-</head>
+% include('header.tpl', title='Street GAMES')
 
 <body>
 
@@ -20,7 +15,5 @@
 <!--<a href="http://127.0.0.1:8080/Statpermatch/A">Machine A</a> <br>-->
 <!--<a href="http://127.0.0.1:8080/Statpermatch/B">Machine B</a> <br>-->
 <!--<a href="http://127.0.0.1:8080/Statpermatch/Date">Date</a> <br>-->
-
+% include('footer.tpl')
 </body>
-
-</html>

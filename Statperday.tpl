@@ -1,3 +1,4 @@
+% include('header.tpl', title='Street GAMES')
 <h1>Stat per Day</h1>
 <ul>
 % for item in resultliste:
@@ -10,3 +11,5 @@
     <li>{{item.egalite}}</li>
 %end
 </ul>
+
+% include('footer.tpl')
