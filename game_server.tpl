@@ -5,40 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <title>GAMES</title>
-
-
-
-
-		<div class="row align-items-center justify-content-center">
-            <div class="col-12 col-lg-8 text-center text-lg-left">
-
-    <h1>PUISSANCE 4 VS MORPION</h1>
-
-
-        <div class="row align-items-center justify-content-center">
-            <div class="col-12 col-lg text-center text-lg-left">
-
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">INDEX</a>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">GAME SERVER</a>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">LAST GAME RESULT</a>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">STATS PER DAY</a>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">STATS PER MATCH</a>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">CREER SERVEUR</a>
-
-</div>
-</div>
 </head>
 <body>
 
-            <ul>
-            % for i in data_list:
-                <li><p>L'adresse IP est :<p>{{i.adress_ip}}</li>
-                <li><p>Le nom du serveur est :</p>{{i.nom_serveur}}</li>
-                <li><p>Le jeu utilisé est :</p>{{i.game}}</li>
-                <a href="modification/{{i.nom_serveur}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Modifier le Serveur</a>
-                <br>
-            % end
-            </ul>
+
+<div class="container">
+  <h2>Striped Rows</h2>
+  <p>The .table-striped class adds zebra-stripes to a table:</p>
+
+  <table class="table table-striped">
+
+    <thead>
+      <tr>
+        <th>adresse IP</th>
+        <th>Nom du serveur</th>
+        <th>Nom du jeu</th>
+
+      </tr>
+    </thead>
+       % for i in data_list:
+    <tbody>
+      <tr>
+        <td>{{i.adress_ip}}</td>
+        <td>{{i.nom_serveur}}</td>
+        <td>{{i.game}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+    %end
+</div>
 
 </header>
 

@@ -2,7 +2,7 @@ from socket import socket, AF_INET, SOCK_STREAM, SOL_SOCKET, SO_REUSEADDR
 import json
 import settings
 import models as mo
-
+from test_json import  Data
 
 HOST = settings.TCP_HOST
 PORT = settings.TCP_PORT
@@ -19,20 +19,21 @@ with socket(AF_INET, SOCK_STREAM) as sock:
         print("Connection received from {}:{}".format(*addr))
         msg_lenght = conn.recv(BUFFER_SIZE)
         lenght_bytes = int.from_bytes(msg_lenght, byteorder=BYTE_ORDER)
-        msg = json.loads(conn.recv(lenght_bytes))
+        msg = conn.recv(lenght_bytes).decode("utf_8")
+        data_dict = json.loads(msg)
 
-        msg_type = msg.get("Msg type", None)
+        msg_type = data_dict.get("Msg type", None)
 
         reponse = {}
 
         if msg_type == "STATS":
-
-            reponse = {"Msg type": "ACK", "Msg ID": msg["Msg ID"]}
+            Data(msg)
+            reponse = {"Msg type": "ACK", "Msg ID": data_dict["Msg ID"]}
 
         if msg_type == "CONFIG":
 
-            recup_config_server = mo.GameServer.get(mo.GameServer.nom_serveur == msg["Machine name"])
-            reponse_config = recup_config_server.get_config(msg["Msg ID"])
+            recup_config_server = mo.GameServer.get(mo.GameServer.nom_serveur == data_dict["Machine name"])
+            reponse_config = recup_config_server.get_config(data_dict["Msg ID"])
 
         reponse_config = json.dumps(reponse)
         msg_encode_config = bytes(reponse_config.encode("utf-8"))
