@@ -23,7 +23,7 @@
 <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">LAST GAME RESULT</a>
 <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">STATS PER DAY</a>
 <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">STATS PER MATCH</a>
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">CONFIGURATION</a>
+<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">CREER SERVEUR</a>
 
 </div>
 </div>
@@ -35,6 +35,7 @@
                 <li><p>L'adresse IP est :<p>{{i.adress_ip}}</li>
                 <li><p>Le nom du serveur est :</p>{{i.nom_serveur}}</li>
                 <li><p>Le jeu utilisé est :</p>{{i.game}}</li>
+                <a href="modification/{{i.nom_serveur}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Modifier le Serveur</a>
                 <br>
             % end
             </ul>
